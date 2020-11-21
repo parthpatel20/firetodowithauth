@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
     if (_themeController.themeChange) {
       return Icon(Icons.lightbulb);
     } else {
-      return Icon(Icons.lightbulb_outline_sharp);
+      return Icon(Icons.lightbulb_outline);
     }
   }
 
@@ -41,11 +41,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: getUserName(), //Obx(() {
-        //   return Text((_userController.user == null)
-        //       ? " "
-        //       : _userController.user.name.toString());
-        // }),
+        title: getUserName(),
         centerTitle: true,
         actions: [
           Obx(
@@ -54,10 +50,10 @@ class Home extends StatelessWidget {
               onPressed: () {
                 if (Get.isDarkMode) {
                   Get.changeTheme(ThemeData.light());
-                  _themeController.themeChange = Get.isDarkMode;
+                  _themeController.themeChange = false;
                 } else {
                   Get.changeTheme(ThemeData.dark());
-                  _themeController.themeChange = Get.isDarkMode;
+                  _themeController.themeChange = true;
                 }
               },
             ),
